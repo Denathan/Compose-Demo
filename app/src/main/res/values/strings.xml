@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Compose Showcase</string>
+
+    // home
+    <string name="home_title">Home</string>
+    <string name="home_input_button">Input</string>
+    <string name="home_preview_button">Preview</string>
+    <string name="home_lazy_column_button">LazyColumn</string>
+
+    // input
+    <string name="input_title">Recomposition</string>
+    <string name="input_search_placeholder">Put your query here</string>
+
+    // lazy column
+    <string name="lazy_column_title">Lazy column example</string>
+</resources>
