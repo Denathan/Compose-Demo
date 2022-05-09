@@ -40,4 +40,11 @@ object NavigationDirections {
 
         override val destination: String = "lazyColumn"
     }
+
+    object Login : NavigationCommand {
+
+        override val arguments: List<NamedNavArgument> = emptyList()
+
+        override val destination: String = "login"
+    }
 }

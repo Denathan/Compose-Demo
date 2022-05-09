@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.rodak.composeshowcase.R
 
 @Composable
-fun EditText(query: String, onQueryChanged: (String) -> Unit) {
+fun SearchInput(query: String, onQueryChanged: (String) -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()

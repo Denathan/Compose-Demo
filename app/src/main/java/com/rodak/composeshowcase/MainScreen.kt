@@ -9,10 +9,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.rodak.composeshowcase.home.HomeScreen
 import com.rodak.composeshowcase.home.HomeScreenViewModel
-import com.rodak.composeshowcase.input.InputScreen
+import com.rodak.composeshowcase.input.ui.InputScreen
 import com.rodak.composeshowcase.input.InputScreenViewModel
 import com.rodak.composeshowcase.lazycolumn.LazyColumnScreen
 import com.rodak.composeshowcase.lazycolumn.LazyColumnScreenViewModel
+import com.rodak.composeshowcase.login.ui.LoginScreen
+import com.rodak.composeshowcase.login.LoginScreenViewModel
 import com.rodak.composeshowcase.navigation.NavigationDirections
 import com.rodak.composeshowcase.navigation.NavigationManager
 import com.rodak.composeshowcase.navigation.NavigationManager.Companion.LISTEN_FOR_NAVIGATION
@@ -45,6 +47,9 @@ fun MainScreen(navigationManager: NavigationManager) {
         }
         composable(route = NavigationDirections.LazyColumn.destination) {
             LazyColumnScreenDestination()
+        }
+        composable(route = NavigationDirections.Login.destination) {
+            LoginScreenDestination()
         }
     }
 }
@@ -88,4 +93,11 @@ private fun LazyColumnScreenDestination() {
     val viewState = viewModel.viewState.value
 
     LazyColumnScreen(viewState = viewState) { event -> viewModel.setEvent(event) }
+}
+
+@Composable
+private fun LoginScreenDestination() {
+    val viewModel: LoginScreenViewModel = hiltViewModel()
+    val viewState = viewModel.viewState.value
+    LoginScreen(viewState = viewState, effectFlow = viewModel.effect) { event -> viewModel.setEvent(event) }
 }

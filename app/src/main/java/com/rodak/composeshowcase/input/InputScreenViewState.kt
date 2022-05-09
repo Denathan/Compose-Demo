@@ -2,4 +2,8 @@ package com.rodak.composeshowcase.input
 
 import com.rodak.composeshowcase.base.ViewState
 
-data class InputScreenViewState(val isLoading: Boolean = false, val query: String= "") : ViewState
+data class InputScreenViewState(
+    val isLoading: Boolean = false,
+    val query: String = "",
+    val isExpanded: Boolean = false
+) : ViewState

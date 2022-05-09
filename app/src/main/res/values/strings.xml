@@ -6,6 +6,7 @@
     <string name="home_input_button">Input</string>
     <string name="home_preview_button">Preview</string>
     <string name="home_lazy_column_button">LazyColumn</string>
+    <string name="home_login_button">Login</string>
 
     // input
     <string name="input_title">Recomposition</string>
@@ -13,4 +14,10 @@
 
     // lazy column
     <string name="lazy_column_title">Lazy column example</string>
+
+    // login
+    <string name="login_title">Login</string>
+    <string name="login_email_input">Email</string>
+    <string name="login_password_input">Password</string>
+    <string name="login_continue_button">Continue</string>
 </resources>

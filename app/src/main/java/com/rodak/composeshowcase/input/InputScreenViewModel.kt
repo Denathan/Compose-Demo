@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.rodak.composeshowcase.base.BaseViewModel
 import com.rodak.composeshowcase.input.InputScreenEvent.OnQueryChange
+import com.rodak.composeshowcase.input.InputScreenEvent.SearchBarExpandToggled
 import com.rodak.composeshowcase.navigation.NavigationDirections.Input.KEY_QUERY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -28,6 +29,7 @@ class InputScreenViewModel @Inject constructor(stateHandle: SavedStateHandle) :
     override fun handleEvents(event: InputScreenEvent) {
         when (event) {
             is OnQueryChange -> setState { copy(query = event.value, isLoading = false) }
+            is SearchBarExpandToggled -> setState { copy(isExpanded = !isExpanded) }
         }
     }
 }

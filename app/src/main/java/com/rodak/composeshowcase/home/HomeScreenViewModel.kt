@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.rodak.composeshowcase.base.BaseViewModel
 import com.rodak.composeshowcase.home.Feature.Input
 import com.rodak.composeshowcase.home.Feature.LazyColumn
+import com.rodak.composeshowcase.home.Feature.Login
 import com.rodak.composeshowcase.home.Feature.Preview
 import com.rodak.composeshowcase.navigation.NavigationDirections
 import com.rodak.composeshowcase.navigation.NavigationManager
@@ -31,7 +32,7 @@ class HomeScreenViewModel @Inject constructor(private val navigationManager: Nav
 
     private fun fetchFeatures() = viewModelScope.launch {
         delay(300)
-        val result = listOf(Input, Preview, LazyColumn)
+        val result = listOf(Input, Preview, LazyColumn, Login)
         setState { copy(features = result, isLoading = false) }
     }
 
@@ -42,6 +43,7 @@ class HomeScreenViewModel @Inject constructor(private val navigationManager: Nav
             )
             is Preview -> navigationManager.navigate(NavigationDirections.Preview)
             is LazyColumn -> navigationManager.navigate(NavigationDirections.LazyColumn)
+            is Login -> navigationManager.navigate(NavigationDirections.Login)
         }
     }
 }

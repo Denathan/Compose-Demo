@@ -1,4 +1,4 @@
-package com.rodak.composeshowcase.input
+package com.rodak.composeshowcase.input.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,8 +16,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.sp
 import com.rodak.composeshowcase.R
+import com.rodak.composeshowcase.input.InputScreenEvent
 import com.rodak.composeshowcase.input.InputScreenEvent.OnQueryChange
-import com.rodak.composeshowcase.views.EditText
+import com.rodak.composeshowcase.input.InputScreenEvent.SearchBarExpandToggled
+import com.rodak.composeshowcase.input.InputScreenViewState
 
 @Composable
 fun InputScreen(
@@ -33,7 +35,10 @@ fun InputScreen(
     ) {
         when {
             viewState.isLoading -> Loader()
-            else -> EditText(query = viewState.query) { onEventSent(OnQueryChange(it)) }
+            else ->
+                InputScreenAnimatedSearchbar(viewState.query, viewState.isExpanded, {
+                    onEventSent(SearchBarExpandToggled)
+                }) { onEventSent(OnQueryChange(it)) }
         }
     }
 }
